@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KJC Token Staking</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>KJC Token Staking</h1>
+    <p id="status">❌ Wallet not connected</p>
+    <button id="connectWallet">Connect Wallet</button>
+
+    <hr/>
+
+    <h2>Stake KJC</h2>
+    <input type="number" id="stakeAmount" placeholder="Amount to stake" min="0.000001" step="0.000001" />
+    <select id="stakeTier">
+      <option value="120">120 Days</option>
+      <option value="180">180 Days</option>
+      <option value="270">270 Days</option>
+    </select>
+    <button id="stakeButton">Stake</button>
+
+    <hr/>
+
+    <h2>Your Stakes</h2>
+    <div id="stakesContainer"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.8.2/dist/web3.min.js"></script>
+
+  <script src="config.js"></script>
+  <script src="abi.js"></script>
+
+  <script src="main.js"></script>
+</body>
+</html>
