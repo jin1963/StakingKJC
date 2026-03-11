@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KJC Token Staking</title>
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: #f5d76e;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #181818;
+      border: 1px solid #a8841e;
+      border-radius: 14px;
+      box-shadow: 0 0 15px rgba(245, 215, 110, 0.15);
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #f5d76e;
+    }
+
+    p {
+      color: #f8e7a5;
+    }
+
+    input, select, button {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    input, select {
+      border: 1px solid #a8841e;
+      background: #101010;
+      color: #f5d76e;
+    }
+
+    button {
+      border: none;
+      background: linear-gradient(135deg, #d4af37, #f5d76e);
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.92;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #5a4a16;
+      margin: 20px 0;
+    }
+
+    #status {
+      background: #111;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #5a4a16;
+      word-break: break-word;
+    }
+
+    .stake-item {
+      background: #111;
+      border: 1px solid #5a4a16;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .stake-item p {
+      margin: 8px 0;
+      word-break: break-word;
+    }
+
+    .stake-item button {
+      margin-top: 10px;
+    }
+
+    .hint {
+      font-size: 13px;
+      color: #cdbb82;
+      margin-top: -2px;
+      margin-bottom: 10px;
+    }
+
+    .top-actions {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .top-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>KJC Token Staking</h1>
+
+    <p id="status">❌ Wallet not connected</p>
+
+    <div class="top-actions">
+      <button id="connectWallet">Connect Wallet</button>
+      <button id="refreshButton">Refresh Stakes</button>
+    </div>
+
+    <div class="hint">มือถือควรเปิดผ่าน DApp Browser ของ MetaMask / Bitget / Trust Wallet</div>
+
+    <hr/>
+
+    <h2>Stake KJC</h2>
+    <input
+      type="number"
+      id="stakeAmount"
+      placeholder="Amount to stake"
+      min="0.000001"
+      step="0.000001"
+    />
+
+    <select id="stakeTier">
+      <option value="120">120 Days</option>
+      <option value="180">180 Days</option>
+      <option value="270">270 Days</option>
+    </select>
+
+    <button id="stakeButton">Stake</button>
+
+    <hr/>
+
+    <h2>Your Stakes</h2>
+    <div id="stakesContainer">กรุณาเชื่อมต่อกระเป๋า</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.8.2/dist/web3.min.js"></script>
+  <script src="config.js"></script>
+  <script src="abi.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
